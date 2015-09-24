@@ -32,8 +32,12 @@ public class ClienteBO {
         return cliDao.buscarTodos();
     }
 
-    public void remover(Cliente cliente){
-        cliDao.excluir(cliente);
+    public void remover(int  id){
+        cliDao.excluir(cliDao.buscarPorId(id));
     }
+    public Cliente editar(int id){
+        return cliDao.buscarPorId(id);
+    }
+
 }
 
