@@ -24,8 +24,12 @@ public class ProdutoBO {
         return produtoDAO.buscarTodos();
     }
 
-    public void remover(){
+    public void remover(int id){
+      produtoDAO.excluir(produtoDAO.buscarPorId(id));
+    }
 
+    public Produto editar(int id){
+        return produtoDAO.buscarPorId(id);
     }
 
 }
