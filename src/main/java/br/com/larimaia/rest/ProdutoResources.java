@@ -8,7 +8,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 
 /**
- * Created by Usuario on 23/09/2015.
+ * Created by Lucas 23/09/2015.
  */
 
 @Path("/produto")
