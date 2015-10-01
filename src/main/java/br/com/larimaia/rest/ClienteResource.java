@@ -20,7 +20,6 @@ public class ClienteResource {
     @POST
     @Path("/salvar")
     @Consumes("apllication/jason")
-    @Produces("application/json")
     public void salvar(Cliente cliente){
         clienteBO.salvar(cliente);
 
@@ -28,8 +27,8 @@ public class ClienteResource {
 
    @GET
    @Path("/editar/{id}")
-   public Cliente editar(@PathParam("id") int id){
-       return clienteBO.editar(id);
+   public Response editar(@PathParam("id") int id){
+       return Response.status(200).entity(clienteBO.editar(id)).build();
    }
 
 
