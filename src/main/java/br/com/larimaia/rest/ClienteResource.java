@@ -11,18 +11,21 @@ import javax.ws.rs.core.Response;
 /**
  * Created by Usuario on 23/09/2015.
  */
+@Path("/cliente")
 public class ClienteResource {
     @Inject
     ClienteBO clienteBO;
+
     private int id;
 
 
     @POST
     @Path("/salvar")
-    @Consumes("apllication/jason")
-    public void salvar(Cliente cliente){
+    @Consumes("application/json")
+    @Produces("application/json")
+    public Response salvar(Cliente cliente){
         clienteBO.salvar(cliente);
-
+        return Response.status(200).entity(cliente).build();
     }
 
    @GET

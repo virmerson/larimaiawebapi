@@ -3,8 +3,10 @@ package br.com.larimaia.bo;
 import br.com.larimaia.dao.ProdutoDAO;
 import br.com.larimaia.entity.Produto;
 
+import javax.enterprise.context.Dependent;
 import java.util.List;
 
+@Dependent
 public class ProdutoBO {
 
     private ProdutoDAO produtoDAO = new ProdutoDAO();

@@ -23,7 +23,6 @@ public class PedidoDAO {
         EntityTransaction tx = em.getTransaction();
 
         tx.begin();
-        System.out.println(pedido.getCerimonial());
         em.merge(pedido);
         em.flush();
         tx.commit();

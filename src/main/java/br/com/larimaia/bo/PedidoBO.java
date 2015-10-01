@@ -4,11 +4,13 @@ import br.com.larimaia.dao.PedidoDAO;
 import br.com.larimaia.entity.Pedido;
 import br.com.larimaia.entity.TipoEvento;
 
+import javax.enterprise.context.Dependent;
 import java.util.List;
 
 /**
  * Created by Davi on 23/09/2015.
  */
+@Dependent
 public class PedidoBO {
 
     private PedidoDAO pedidoDAO = new PedidoDAO();

@@ -78,10 +78,7 @@ public class TipoEvento implements Serializable {
             return false;
         }
         TipoEvento other = (TipoEvento) object;
-        if ((this.idTipoEvento == null && other.idTipoEvento != null) || (this.idTipoEvento != null && !this.idTipoEvento.equals(other.idTipoEvento))) {
-            return false;
-        }
-        return true;
+        return !((this.idTipoEvento == null && other.idTipoEvento != null) || (this.idTipoEvento != null && !this.idTipoEvento.equals(other.idTipoEvento)));
     }
 
     @Override

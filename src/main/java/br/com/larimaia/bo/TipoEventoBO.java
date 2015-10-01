@@ -4,11 +4,13 @@ import br.com.larimaia.dao.TipoEventoDAO;
 import br.com.larimaia.entity.Cliente;
 import br.com.larimaia.entity.TipoEvento;
 
+import javax.enterprise.context.Dependent;
 import java.util.List;
 
 /**
  * Created by Davi on 23/09/2015.
  */
+@Dependent
 public class TipoEventoBO {
 
     private TipoEventoDAO eventoDAO = new TipoEventoDAO();
