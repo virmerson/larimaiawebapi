@@ -23,26 +23,30 @@ public class ClienteResource {
     @Path("/salvar")
     @Consumes("application/json")
     @Produces("application/json")
-    public Response salvar(Cliente cliente){
+    public Response salvar(Cliente cliente) {
         clienteBO.salvar(cliente);
         return Response.status(200).entity(cliente).build();
     }
 
-   @GET
-   @Path("/editar/{id}")
-   public Response editar(@PathParam("id") int id){
-       return Response.status(200).entity(clienteBO.editar(id)).build();
-   }
+    @GET
+    @Path("/editar/{id}")
+    public Response editar(@PathParam("id") int id) {
+        return Response.status(200).entity(clienteBO.editar(id)).build();
+    }
 
+    @GET
+    @Path("/lista")
+    @Produces("application/json")
+    public Response lista(){
 
+        return Response.status(200).entity(clienteBO.listar()).build();
+    }
 
     @DELETE
     @Path("/excluir/{id}")
-    public void excluir(@PathParam("id") int id){
+    public void excluir(@PathParam("id") int id) {
         clienteBO.remover(id);
     }
-
-
 
 
 }

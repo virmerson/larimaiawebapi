@@ -1,5 +1,6 @@
 /.idea
-     # Created by .ignore support plugin (hsz.mobi)
+
 /src/main/webapp/bower_components
 /larimaiawebapi.iml
      *.iml
+

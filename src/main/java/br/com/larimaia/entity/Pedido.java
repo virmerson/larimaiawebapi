@@ -9,7 +9,6 @@ import java.util.Collection;
  */
 @Entity
 @Table(name = "pedido")
-
 @NamedQueries({
         @NamedQuery(name = "Pedido.findAll", query = "SELECT p FROM Pedido p"),
         @NamedQuery(name = "Pedido.findById", query = "SELECT p FROM Pedido p WHERE p.id = :id"),
