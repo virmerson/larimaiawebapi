@@ -16,26 +16,26 @@ public class ClienteBO {
     private ClienteDAO cliDao = new ClienteDAO();
 
 
-
-    public ClienteBO(){
+    public ClienteBO() {
     }
 
-    public void salvar(Cliente cliente){
+    public void salvar(Cliente cliente) {
         try {
             cliDao.salvar(cliente);
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e);
         }
     }
 
-    public List<Cliente> listar(){
+    public List<Cliente> listar() {
         return cliDao.buscarTodos();
     }
 
-    public void remover(int  id){
+    public void remover(int id) {
         cliDao.excluir(cliDao.buscarPorId(id));
     }
-    public Cliente editar(int id){
+
+    public Cliente editar(int id) {
         return cliDao.buscarPorId(id);
     }
 
