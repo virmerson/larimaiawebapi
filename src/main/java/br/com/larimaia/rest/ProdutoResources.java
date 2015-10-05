@@ -35,4 +35,11 @@ public class ProdutoResources {
           produtoBO.remover(id);
     }
 
+    @GET
+    @Path("/listar")
+    @Produces("apllication/jason")
+    public Response listar(){
+        return Response.status(200).entity(produtoBO.listar()).build();
+    }
+
 }
