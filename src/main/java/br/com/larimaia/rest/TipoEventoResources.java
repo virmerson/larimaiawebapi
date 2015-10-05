@@ -27,4 +27,11 @@ public class TipoEventoResources {
     @Path("/excluir/{id}")
     public void excluir(@PathParam("id") int id){tipoEventoBO.remover(id); }
 
+    @GET
+    @Path("/listar")
+    @Produces("apllication/jason")
+    public Response listar(){
+        return Response.status(200).entity(tipoEventoBO.listar()).build();
+    }
+
 }
