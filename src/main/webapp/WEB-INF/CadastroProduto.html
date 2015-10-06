@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" nd-app="appAngular">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="bower_components/angular/angular-csp.css">
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/CadastroProdutoController.js"></script>
+    <title>Cadastro de Produto</title>
+</head>
+<body>
+
+  <h2>Cadastrar Produto</h2>
+  <input id="idDescricao" type="text" placeholder="Descrição do Produto">
+  <input id="idValor" type="text" placeholder="Valor do Produto">
+  <ul>
+  <form>
+      Id:
+      <input type="text" ng-model="produto.id" />
+      Descrição:
+      <input type="text" ng-model="produto.descricao" />
+      Valor:
+      <input type="text" ng-model="produto.valor" />
+      <button ng-click="salvar()"> Salvar </button>
+  </form>
+
+  <li ng-repeat="produto in produtos">
+
+      {{produto.id + " "+ produto.descricao +" - " + produto.valor }}
+      <button ng-click="excluir(produto.id)"> Excluir </button>
+      <button ng-click="editar(produto)"> Editar </button>
+  </li>
+</ul>
+</body>
+</html>
