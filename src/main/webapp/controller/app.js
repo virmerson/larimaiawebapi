@@ -1,0 +1,1 @@
+var appCrudAngular =  angular.module('appCrudAngular', []);
