@@ -1,1 +1,1 @@
-var appCrudAngular =  angular.module('appCrudAngular', []);
+var appCrudAngular =  angular.module('appCrudAngular', ['ngMaterial']);
