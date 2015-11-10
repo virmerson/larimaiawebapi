@@ -1,0 +1,146 @@
+<html ng-app="appCrudAngular" >
+<head>
+    <link rel="stylesheet" href="bower_components/angular/angular-csp.css">
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
+
+</head>
+<body ng-controller="PedidoCtrl">
+<form >
+
+    <h1 >Lari Maia - Pedido</h1>
+
+
+    <div >
+        <div >
+            <div >
+                <label >Origem do Pedido: </label>
+                <input ng-model="pedido.origemPedido"/>
+                <br>
+
+                <label>Data do Pedido: </label>
+                <input ng-model="pedido.dataPedido"/>
+                <br>
+
+                <label>Cliente: </label>
+                <select ng-model="clienteSelec"  ng-options="cliente.nome for cliente in clientes">
+                    <option value="">Escolha um cliente</option>
+                </select>
+                <br>
+                <br>
+
+                <label>Indica&ccedil;&atilde;o: </label>
+                <input ng-model="pedido.indicacao" />
+                <br>
+
+                <label>Observa&ccedil;&otilde;es: </label>
+                <textarea ng-model="pedido.observacao"></textarea>
+                <br>
+                <br>
+                <br>
+
+            </div>
+        </div>
+    </div>
+
+    <div >
+
+        <label>Cerimonial: </label>
+        <input ng-model="pedido.cerimonial" />
+        <br>
+
+        <label>Data do Evento: </label>
+        <input ng-model="pedido.dataEvento" />
+        <br>
+
+        <label>Tipo do Evento: </label>
+        <select ng-model="tipoeventoSelec"  ng-options="tipoevento.descricao for tipoevento in tipoeventos">
+            <option value="">Escolha um Tipo Evento</option>
+        </select>
+        <br>
+
+        <label>Horario do Evento: </label>
+        <input ng-model="pedido.horaEvento" />
+        <br>
+
+        <label>Local do Evento: </label>
+        <input ng-model="pedido.localEvento"/>
+        <br>
+
+        <label>Endere&ccedil;o: </label>
+        <input ng-model="pedido.endereco" />
+        <br>
+        <br>
+        <label> Produto  </label>
+
+        <br>
+
+        <select ng-model="produtoSelec"  ng-options="produto.descricao for produto in produtos">
+            <option value="">Escolha um produto</option>
+
+        </select>
+
+        <label> Quantidade </label>
+        <input ng-model="qtd">
+        <button ng-click="adicionar()">Adicionar </button>
+
+        <br>
+        <br>
+
+        <table id="tabela">
+            <thead>
+            <tr>
+
+                <th>Produto</th>
+                <th>Quantidade</th>
+                <th>Valor</th>
+            </tr>
+            </thead>
+            <tbody>
+
+
+            <div >
+            <tr ng-repeat="item in pedido.itemPedidoCollection">
+
+                <td>{{item.idProduto.descricao}}</td>
+                <td>{{item.quantidade}}</td>
+                <td>{{item.valorItem}}</td>
+
+                <td><a ng-click="excluir()">Excluir</a></td>
+            </tr>
+    </div>
+
+
+    </tbody>
+    </table>
+    <br>
+    <br>
+
+    <label>Valor Total </label>
+
+
+    <br>
+    <br>
+    <br>
+    <button ng-click="salvar()">Salvar</button>
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+    </div>
+
+</form>
+
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+
+    <script src="bower_components/angular-animate/angular-animate.min.js "></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="controller/app.js"></script>
+    <script src="controller/PedidoCtrl.js"></script>
+
+</body>
+</html>
