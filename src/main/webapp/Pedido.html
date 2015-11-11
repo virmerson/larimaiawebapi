@@ -86,32 +86,18 @@
         <br>
         <br>
 
-        <table id="tabela">
-            <thead>
-            <tr>
-
-                <th>Produto</th>
-                <th>Quantidade</th>
-                <th>Valor</th>
-            </tr>
-            </thead>
-            <tbody>
-
-
-            <div >
-            <tr ng-repeat="item in pedido.itemPedidoCollection">
-
-                <td>{{item.idProduto.descricao}}</td>
-                <td>{{item.quantidade}}</td>
-                <td>{{item.valorItem}}</td>
-
-                <td><a ng-click="excluir()">Excluir</a></td>
-            </tr>
-    </div>
-
-
-    </tbody>
-    </table>
+        <div ng-cloak>
+        <md-content>
+        <md-list>
+            <md-subheader class="md-no-sticky">Itens do Pedido</md-subheader>
+            <md-list-item ng-repeat="item in itens track by $index">
+                <div class="md-list-item-text">
+                {{item.idProduto.descricao+"  -  "+item.quantidade+"  -  "+item.valorItem}} <button ng-click="excluir(item)"> Excluir</button>
+                </div>
+            </md-list-item>
+        </md-list>
+        </md-content>
+        </div>
     <br>
     <br>
 

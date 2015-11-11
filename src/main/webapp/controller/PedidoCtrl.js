@@ -4,6 +4,7 @@
 appCrudAngular.controller('PedidoCtrl',function($scope,$http) {
 
     $scope.pedido = {};
+    $scope.itens = [];
     $scope.produtoSelec = {};
     $scope.clienteSelec = {};
     $scope.tipoeventoSelec = {};
@@ -16,18 +17,21 @@ appCrudAngular.controller('PedidoCtrl',function($scope,$http) {
     $scope.adicionar = function () {
         $scope.itempedido.quantidade = $scope.qtd;
         $scope.itempedido.valorItem = $scope.produtoSelec.valor * $scope.qtd;
-        $scope.itempedido.id = $scope.pedido;
         $scope.itempedido.idProduto = $scope.produtoSelec;
-        $scope.pedido.itemPedidoCollection.push($scope.itempedido);
+        $scope.itens.push($scope.itempedido);
     };
 
-    $scope.excluir = function () {
-        var idx = $scope.pedido.itemPedidoCollection.indexOf($scope.itempedido);
-        $scope.pedido.itemPedidoCollection.splice(idx, 1);
+    $scope.excluir = function (item) {
+        var idx = $scope.itens.indexOf(item);
+        $scope.itens.splice(idx, 1);
     };
 
     $scope.salvar = function () {
-        $http.post('/ws/pedido/salvar',$scope.pedido).success(function (dados){
+        $scope.pedido.itemPedidoCollection = $scope.itens;
+        for(var idx in $scope.pedido.itemPedidoCollection){
+            $scope.pedido.itemPedidoCollection[idx].id = $scope.pedido;
+        }
+        $http.post('./ws/pedido/salvar',$scope.pedido).success(function (dados){
             window.alert("Sucesso!");
             $scope.pedido = {};
         });
