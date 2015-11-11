@@ -29,9 +29,11 @@ appCrudAngular.controller('PedidoCtrl',function($scope,$http) {
     $scope.salvar = function () {
         $scope.pedido.itemPedidoCollection = $scope.itens;
         for(var idx in $scope.pedido.itemPedidoCollection){
-            $scope.pedido.itemPedidoCollection[idx].id = $scope.pedido;
+            $scope.pedido.itemPedidoCollection[idx].id = {id:$scope.pedido.id};
         }
-        $http.post('./ws/pedido/salvar',$scope.pedido).success(function (dados){
+        $scope.pedido.idCliente = {id:$scope.clienteSelec.idCliente};
+        $scope.pedido.idTipoEvento = {id:$scope.tipoeventoSelec.idTipoEvento};
+        $http.post('./ws/pedido/salvar',$scope.pedido,{'Content-Type':'application/json'}).success(function (dados){
             window.alert("Sucesso!");
             $scope.pedido = {};
         });
