@@ -37,7 +37,7 @@ public class ProdutoResources {
 
     @GET
     @Path("/listar")
-    @Produces("apllication/jason")
+    @Produces("application/json")
     public Response listar(){
         return Response.status(200).entity(produtoBO.listar()).build();
     }

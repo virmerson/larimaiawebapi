@@ -1,0 +1,69 @@
+<html ng-app="appCrudAngular">
+<head>
+
+
+    <link rel="stylesheet" href="bower_components/angular/angular-csp.css">
+
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
+
+</head>
+<body ng-controller="ClienteCtrl">
+
+
+<form>
+
+    <md-input-container>
+        <label>ID: </label>
+        <input type="text" ng-model="cliente.idCliente">
+    </md-input-container>
+
+
+    <md-input-container>
+        <label>Nome: </label>
+        <input type="text" class="form-control" ng-model="cliente.nome"/>
+    </md-input-container>
+
+
+    <md-input-container>
+        <label>E-mail: </label>
+        <input ng-model="cliente.email" type="email"/>
+    </md-input-container>
+
+    <md-input-container>
+        <label>Telefone: </label>
+        <input ng-model="cliente.telefone" type="tel"/>
+    </md-input-container>
+
+    <md-button class="md-raised md-primary" ng-click="salvar()"> Salvar</md-button>
+
+</form>
+<div ng-cloak>
+    <md-content>
+        <md-list>
+            <md-list-item class="md-3-line md-long-text" ng-repeat="cliente in clientes">
+
+                <div class="md-list-item-text">
+                    {{"ID:"+cliente.idCliente + " / "+ "Nome:"+cliente.nome + " / " + "E-mail:"+cliente.email + " / " +"Telefone:"+cliente.telefone }}
+
+
+                    <button ng-click="excluir(cliente.idCliente)"> Excluir</button>
+                    <button ng-click="editar(cliente)"> Editar</button>
+
+                </div>
+
+
+            </md-list-item>
+        </md-list>
+    </md-content>
+</div>
+
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-aria/angular-aria.min.js"></script>
+
+<script src="bower_components/angular-animate/angular-animate.min.js"></script>
+<script src="bower_components/angular-material/angular-material.js"></script>
+<script src="controller/app.js"></script>
+<script src="controller/cadastroClienteController.js"></script>
+
+</body>
+</html>

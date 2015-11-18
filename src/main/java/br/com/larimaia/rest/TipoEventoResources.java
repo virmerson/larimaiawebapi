@@ -29,7 +29,7 @@ public class TipoEventoResources {
 
     @GET
     @Path("/listar")
-    @Produces("apllication/jason")
+    @Produces("application/json")
     public Response listar(){
         return Response.status(200).entity(tipoEventoBO.listar()).build();
     }
