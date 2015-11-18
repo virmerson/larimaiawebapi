@@ -40,6 +40,13 @@ public class PedidoDAO {
         return consulta.getResultList();
     }
 
+    public List<Pedido> data() {
+        //JPQL
+        Query consulta = em.createNamedQuery("Pedido.findByDataPedido");
+        consulta.setParameter("dataPedido", "2015-01-01");
+        return consulta.getResultList();
+    }
+
     public void excluir(Pedido pedido) {
         //
 

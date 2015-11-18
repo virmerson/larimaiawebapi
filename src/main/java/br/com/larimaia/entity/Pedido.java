@@ -18,9 +18,10 @@ import java.util.Collection;
         @NamedQuery(name = "Pedido.findByIndicacao", query = "SELECT p FROM Pedido p WHERE p.indicacao = :indicacao"),
         @NamedQuery(name = "Pedido.findByEndereco", query = "SELECT p FROM Pedido p WHERE p.endereco = :endereco"),
         @NamedQuery(name = "Pedido.findByObservacao", query = "SELECT p FROM Pedido p WHERE p.observacao = :observacao"),
-        @NamedQuery(name = "Pedido.findByDataPedido", query = "SELECT p FROM Pedido p WHERE p.dataPedido = :dataPedido"),
+        @NamedQuery(name = "Pedido.findByDataPedido", query = "SELECT p FROM Pedido p WHERE p.dataPedido = :dataPedido be"),
         @NamedQuery(name = "Pedido.findByDataEvento", query = "SELECT p FROM Pedido p WHERE p.dataEvento = :dataEvento"),
         @NamedQuery(name = "Pedido.findByHoraEvento", query = "SELECT p FROM Pedido p WHERE p.horaEvento = :horaEvento")})
+
 public class Pedido implements Serializable {
 
     private static final long serialVersionUID = 1L;

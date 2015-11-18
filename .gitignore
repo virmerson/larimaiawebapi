@@ -1,6 +1,7 @@
 /.idea
 
 /src/main/webapp/bower_components
-/larimaiawebapi.iml
-     *.iml
+larimaiawebapi.iml
+ *.iml
+/target
 
