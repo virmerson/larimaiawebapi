@@ -15,9 +15,14 @@ public class TipoEventoResources {
     @Inject
     TipoEventoBO tipoEventoBO;
 
+    @POST
     @Path("/salvar")
     @Consumes("application/json")
-    public void salvar(TipoEvento tipoEvento){tipoEventoBO.salvar(tipoEvento);}
+    @Produces("application/json")
+    public Response salvar(TipoEvento tipoEvento){
+        tipoEventoBO.salvar(tipoEvento);
+        return Response.status(200).entity(tipoEvento).build();
+    }
 
     @GET
     @Path("/editar/{id}")
@@ -31,6 +36,7 @@ public class TipoEventoResources {
     @Path("/listar")
     @Produces("application/json")
     public Response listar(){
+
         return Response.status(200).entity(tipoEventoBO.listar()).build();
     }
 
