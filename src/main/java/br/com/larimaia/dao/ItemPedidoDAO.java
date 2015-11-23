@@ -9,12 +9,10 @@ import java.util.List;
  * Created by Davi on 23/09/2015.
  */
 public class ItemPedidoDAO {
-    EntityManagerFactory emf;
     EntityManager em;
 
     public ItemPedidoDAO(){
-        emf = Persistence.createEntityManagerFactory("lm_bemcasadoPU");
-        em = emf.createEntityManager();
+        em = JPAUtil.abreConexao();
     }
 
     public ItemPedido salvar(ItemPedido itemPedido){

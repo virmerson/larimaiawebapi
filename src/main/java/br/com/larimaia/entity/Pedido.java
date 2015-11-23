@@ -18,7 +18,7 @@ import java.util.Collection;
         @NamedQuery(name = "Pedido.findByIndicacao", query = "SELECT p FROM Pedido p WHERE p.indicacao = :indicacao"),
         @NamedQuery(name = "Pedido.findByEndereco", query = "SELECT p FROM Pedido p WHERE p.endereco = :endereco"),
         @NamedQuery(name = "Pedido.findByObservacao", query = "SELECT p FROM Pedido p WHERE p.observacao = :observacao"),
-        @NamedQuery(name = "Pedido.findByDataPedido", query = "SELECT p FROM Pedido p WHERE p.dataPedido = :dataPedido be"),
+        @NamedQuery(name = "Pedido.findByDataPedido", query = "SELECT p FROM Pedido p WHERE p.dataPedido BETWEEN :dataInicio AND :dataFinal"),
         @NamedQuery(name = "Pedido.findByDataEvento", query = "SELECT p FROM Pedido p WHERE p.dataEvento = :dataEvento"),
         @NamedQuery(name = "Pedido.findByHoraEvento", query = "SELECT p FROM Pedido p WHERE p.horaEvento = :horaEvento")})
 

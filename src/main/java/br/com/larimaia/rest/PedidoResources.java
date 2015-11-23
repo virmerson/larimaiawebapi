@@ -16,6 +16,7 @@ public class PedidoResources {
     @Inject
     PedidoBO pedidoBO;
 
+    @POST
     @Path("/salvar")
     @Consumes("application/json")
     public void salvar(Pedido pedido){pedidoBO.salvar(pedido);}
@@ -27,4 +28,6 @@ public class PedidoResources {
     @DELETE
     @Path("/excluir/{id}")
     public void excluir(@PathParam("id") int id){pedidoBO.remover(id); }
+
+
 }

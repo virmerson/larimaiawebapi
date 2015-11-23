@@ -9,15 +9,10 @@ import java.util.List;
  * Created by Davi on 23/09/2015.
  */
 public class ProdutoDAO {
-
-    EntityManagerFactory emf;
     EntityManager em;
 
     public ProdutoDAO() {
-        //Ler o persistence.xml
-        emf = Persistence.createEntityManagerFactory("lm_bemcasadoPU");
-        //Criano EntityManager
-        em = emf.createEntityManager();
+        em = JPAUtil.abreConexao();
     }
 
     public void salvar(Produto produto) {

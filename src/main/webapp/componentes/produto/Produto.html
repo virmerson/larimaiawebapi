@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html ng-app="appCrudAngular">
+<head>
+    <link rel="stylesheet" href="bower_components/angular/angular-csp.css">
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
+    <link rel="stylesheet" href="/bower_components/material-design-lite/material.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <meta charset="UTF-8">
+    <title>Produto do capiroto </title>
+
+
+    <!-- Uses a transparent header that draws on top of the layout's background -->
+    <style>
+        .demo-layout-transparent {
+            background-color:  ;
+        }
+        .demo-layout-transparent .mdl-layout__header,
+        .demo-layout-transparent .mdl-layout__drawer-button {
+            /* This background is dark, so we set text to white. Use 87% black instead if
+               your background is light. */
+            color: white;
+        }
+    </style>
+</head>
+<body ng-controller="ProdutoCtrl">
+
+    <form>
+        <md-input-container>
+            <label>Descrição</label>
+            <input type="text" ng-model="produto.descricao"/>
+        </md-input-container>
+
+        <md-input-container>
+            <label>Valor</label>
+            <input ng-model="produto.valor" type="text">
+        </md-input-container>
+
+        <md-button class="md-raised md-primary" ng-disabled="!produto.descricao || !produto.valor" ng-click="salvar()">Salvar</md-button>
+    </form>
+
+
+
+            <div ng-cloak>
+                <md-content>
+                    <md-list>
+                        <md-list-item class="md-3-line md-long-text" ng-repeat="produto in produtos">
+
+                            <div class="md-list-item-text">
+                                {{produto.id + " "+ produto.descricao +" - " + produto.valor }}
+
+
+                                <button ng-click="excluir(produto.idProduto)"> Excluir</button>
+                                <button ng-click="editar(produto)"> Editar</button>
+                            </div>
+
+                        </md-list-item>
+
+                    </md-list>
+                </md-content>
+            </div>
+
+    </main>
+</div>
+<script src="bower_components/angular-new-router/dist/router.es5.min.js"></script>
+<script src="/bower_components/material-design-lite/material.min.js"></script>
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-aria/angular-aria.min.js"></script>
+<script src="bower_components/angular-animate/angular-animate.min.js "></script>
+<script src="bower_components/angular-material/angular-material.js"></script>
+
+<script src="controller/app.js"></script>
+<script src="controller/produtoController.js"></script>
+
+
+</body>
+</html>

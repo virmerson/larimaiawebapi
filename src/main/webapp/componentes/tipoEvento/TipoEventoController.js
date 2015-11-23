@@ -3,10 +3,10 @@
  */
 'use strict';
 
-var appControllers = angular.module('appControllers', ['ngMaterial']);
+
 
 //Um controller dela
-appControllers.controller('TipoEventoCtrl', function ($scope, $http) {
+appCrudAngular.controller('TipoEventoCtrl', function ($scope, $http) {
 
     $scope.tiposEvento = {}; //Lista de Tipo Evento vinculadas a tela
     $scope.tipoEvento = {}; // Objeto Tipo Evento Vinculado a tela (Form)

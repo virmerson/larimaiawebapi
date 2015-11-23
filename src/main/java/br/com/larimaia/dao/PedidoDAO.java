@@ -10,13 +10,10 @@ import java.util.List;
  */
 
 public class PedidoDAO {
-
-    EntityManagerFactory emf;
     EntityManager em;
 
     public PedidoDAO() {
-        emf = Persistence.createEntityManagerFactory("lm_bemcasadoPU");
-        em = emf.createEntityManager();
+        em = JPAUtil.abreConexao();
     }
 
     public void salvar(Pedido pedido) {
@@ -40,13 +37,6 @@ public class PedidoDAO {
         return consulta.getResultList();
     }
 
-    public List<Pedido> data() {
-        //JPQL
-        Query consulta = em.createNamedQuery("Pedido.findByDataPedido");
-        consulta.setParameter("dataPedido", "2015-01-01");
-        return consulta.getResultList();
-    }
-
     public void excluir(Pedido pedido) {
         //
 
@@ -61,4 +51,11 @@ public class PedidoDAO {
             e.printStackTrace();
         }
     }
+
+    public List<Pedido> findByDataPedido(String dataInicio, String dataFinal){
+        List<Pedido> resultList = em.createNamedQuery("Pedido.findByDataPedido")
+                .setParameter("dataInicio", dataInicio).setParameter("dataFinal", dataFinal).getResultList();
+        return resultList;
+    }
+
 }

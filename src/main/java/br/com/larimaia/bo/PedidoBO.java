@@ -1,6 +1,7 @@
 package br.com.larimaia.bo;
 
 import br.com.larimaia.dao.PedidoDAO;
+import br.com.larimaia.entity.ItemPedido;
 import br.com.larimaia.entity.Pedido;
 import br.com.larimaia.entity.TipoEvento;
 
@@ -21,6 +22,10 @@ public class PedidoBO {
 
     public void salvar(Pedido pedido){
         try {
+
+            for(ItemPedido ip:pedido.getItemPedidoCollection())
+                ip.setId(pedido);
+
             pedidoDAO.salvar(pedido);
         }catch (Exception e){
             System.out.println(e);
