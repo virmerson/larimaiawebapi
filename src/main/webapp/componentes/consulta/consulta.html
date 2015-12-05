@@ -2,9 +2,9 @@
 
 <head>
 
-    <link rel="stylesheet" href="bower_components/angular/angular-csp.css">
+    <link rel="stylesheet" href="../../bower_components/angular/angular-csp.css">
 
-    <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
+    <link rel="stylesheet" href="../../bower_components/angular-material/angular-material.min.css">
 
 
     <!-- Material Design Lite -->
@@ -19,15 +19,17 @@
 <body>
 
 
-<div ng-controller="ClienteCtrl" class="md-padding" ng-cloak>
+<div ng-controller="Consultatrl" class="md-padding" ng-cloak>
     <div>
         <h1 class="md-title">Consulta</h1>
 
         <div>
 
+            
+
             <md-input-container>
                 <label>Nome:</label>
-                <md-select ng-model="cliente">
+                <md-select ng-model="listarclientes">
                     <md-option ng-repeat="cliente in clientes" value="{{cliente.nome}}">
                         {{cliente.nome}}
                     </md-option>
@@ -115,13 +117,13 @@
 </div>
 
 
-<script src="bower_components/angular/angular.min.js"></script>
-<script src="bower_components/angular-aria/angular-aria.min.js"></script>
+<script src="../../bower_components/angular/angular.min.js"></script>
+<script src="../../bower_components/angular-aria/angular-aria.min.js"></script>
 
-<script src="bower_components/angular-animate/angular-animate.min.js"></script>
-<script src="bower_components/angular-material/angular-material.js"></script>
-<script src="controller/app.js"></script>
-<script src="controller/cadastroClienteController.js"></script>
+<script src="../../bower_components/angular-animate/angular-animate.min.js"></script>
+<script src="../../bower_components/angular-material/angular-material.js"></script>
+<script src="../../controller/app.js"></script>
+<script src="ConsultaController.js"></script>
 
 </body>
 
