@@ -3,6 +3,7 @@
     <persistence-unit name="lm_bemcasadoPU" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         <class>br.com.larimaia.entity.Cliente</class>
+        <class>br.com.larimaia.entity.Cerimonial</class>
         <class>br.com.larimaia.entity.TipoEvento</class>
         <class>br.com.larimaia.entity.Pedido</class>
         <class>br.com.larimaia.entity.ItemPedido</class>

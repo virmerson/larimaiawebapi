@@ -16,6 +16,7 @@ public class ProdutoResources {
     @Inject
     ProdutoBO produtoBO;
 
+    @POST
     @Path("/salvar")
     @Consumes("application/json")
     public void salvar(Produto produto){

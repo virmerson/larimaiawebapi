@@ -1,5 +1,6 @@
 package br.com.larimaia.dao;
 
+import br.com.larimaia.entity.Cliente;
 import br.com.larimaia.entity.Pedido;
 
 import javax.persistence.*;
@@ -38,7 +39,7 @@ public class PedidoDAO {
     }
 
     public void excluir(Pedido pedido) {
-        //
+
 
         EntityTransaction tx = em.getTransaction();
         try {
@@ -55,6 +56,18 @@ public class PedidoDAO {
     public List<Pedido> findByDataPedido(String dataInicio, String dataFinal){
         List<Pedido> resultList = em.createNamedQuery("Pedido.findByDataPedido")
                 .setParameter("dataInicio", dataInicio).setParameter("dataFinal", dataFinal).getResultList();
+        return resultList;
+    }
+
+    public List<Pedido> findByDataEvento(String dataInicio, String dataFinal){
+        List<Pedido> resultList = em.createNamedQuery("Pedido.findByDataEvento")
+                .setParameter("dataInicio", dataInicio).setParameter("dataFinal", dataFinal).getResultList();
+        return resultList;
+    }
+
+    public List<Pedido> findByCliente(Integer id){
+        List<Pedido> resultList = em.createNamedQuery("Pedido.findByCliente")
+                .setParameter("idCliente", id).getResultList();
         return resultList;
     }
 

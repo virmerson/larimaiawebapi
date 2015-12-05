@@ -23,11 +23,38 @@ public class PedidoResources {
 
     @GET
     @Path("/editar/{id}")
+    @Produces("application/json")
     public Response editar(@PathParam("id") int id){return Response.status(200).entity(pedidoBO.editar(id)).build();}
 
     @DELETE
     @Path("/excluir/{id}")
     public void excluir(@PathParam("id") int id){pedidoBO.remover(id); }
 
+    @GET
+    @Path("/buscarporid/{id}")
+    @Produces("application/json")
+    public Response buscarPorId(@PathParam("id") int id){return Response.status(200).entity(pedidoBO.editar(id)).build(); }
 
+    @GET
+    @Path("/pordatapedido/{dataInicio}/{dataFim}")
+    @Produces("application/json")
+    public Response porDataPedido(@PathParam("dataInicio") String dataInicio,@PathParam("dataFim") String dataFim){
+        return Response.status(200).entity(pedidoBO.porDataPedido(dataInicio, dataFim)).build();
+    }
+
+    @GET
+    @Path("/porcliente/{id}")
+    @Produces("application/json")
+    public Response porCliente(@PathParam("id") Integer id){
+        return Response.status(200).entity(pedidoBO.porCliente(id)).build();
+    }
+
+
+    @GET
+    @Path("/pordataevento/{dataInicio}/{dataFim}")
+    @Produces("application/json")
+    public Response porDataEvento(@PathParam("dataInicio") String dataInicio,@PathParam("dataFim") String dataFim){
+        return Response.status(200).entity(pedidoBO.porDataPedido(dataInicio, dataFim)).build();
+    }
+    
 }
