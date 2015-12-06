@@ -1,121 +1,81 @@
 <html ng-app="appCrudAngular">
 
 <head>
-
     <link rel="stylesheet" href="../../bower_components/angular/angular-csp.css">
-
-    <link rel="stylesheet" href="../../bower_components/angular-material/angular-material.min.css">
-
-
-    <!-- Material Design Lite -->
-    <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
-    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css">
-    <!-- Material Design icon font -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../../bower_components/angular-material/angular-material.css">
 
 </head>
 
 
-<body>
+<body ng-controller="Consultatrl">
 
 
-<div ng-controller="Consultatrl" class="md-padding" ng-cloak>
+<div>
     <div>
         <h1 class="md-title">Consulta</h1>
 
         <div>
 
-            
-
-            <md-input-container>
-                <label>Nome:</label>
-                <md-select ng-model="listarclientes">
-                    <md-option ng-repeat="cliente in clientes" value="{{cliente.nome}}">
-                        {{cliente.nome}}
-                    </md-option>
-                </md-select>
-            </md-input-container>
 
             <div>
+                <label>Cliente: </label>
+                <select ng-model="listarclientes"  ng-options="cliente.nome for cliente in clientes">
+                    <option value="">Escolha um cliente</option>
+                </select>
+                <button ng-click="buscarporcliente(cliente.idCliente)"> Buscar </button>
+                <br>
+                <br>
+            </div>
 
-                <md-content>
+            <div>
+                <h4>Contrato Data Inicial e Final</h4>
+                <input type="date" ng-model="contrato.inicio" name="Data Inicial">
+                <input type="date" ng-model="contrato.fim" name="Data Final">
 
-                    <div layout="row">
-
-                        <h4>Contrato Data Inicial</h4>
-                        <md-datepicker ng-model="contrato.inicio" md-placeholder="Data Inicial"></md-datepicker>
-
-
-                        <h4>Contrato Data Final</h4>
-                        <md-datepicker ng-model="contrato.fim" md-placeholder="Data Final"></md-datepicker>
-                    </div>
-
-                </md-content>
-
+                <button ng-click="buscarpordatapedido(contrato.inicio+contrato.fim)"> Buscar </button>
+                <br>
+                <br>
             </div>
 
 
             <div>
+                <h4>Evento Data Inicial e Final</h4>
+                <input type="date" ng-model="evento.inicio" name="Data Inicial">
+                <input type="date" ng-model="evento.fim" name="Data Final">
 
-                <md-content>
-
-                    <div layout="">
-
-                        <h4>Evento Data Inicial</h4>
-                        <md-datepicker ng-model="evento.inicio" md-placeholder="Data Inicial"></md-datepicker>
-
-
-                        <h4>Evento Data Final</h4>
-                        <md-datepicker ng-model="evento.fim" md-placeholder="Data Final"></md-datepicker>
-                    </div>
-
-                </md-content>
-
-                <md-button class="md-raised md-primary" ng-click="buscarConsulta()"> Buscar</md-button>
+                <button ng-click="buscarpordataevento(evento.inicio+evento.fim)"> Buscar </button>
+                <br>
+                <br>
             </div>
+
+
         </div>
     </div>
 
 
-    <div ng-cloak>
-        <md-content>
-            <!--<md-list>-->
-            <!--<md-list-item class="md-3-line md-long-text" ng-repeat="pedido in pedidos">-->
-
-            <!--<div class="md-list-item-text">-->
-            <!--{{"Nome:"+pedido.getCliente().getNome() + " / "+ "Data Evento:"+pedido.getDataEvento() }}-->
-
-            <!--<button ng-click="Detalhes(pedido)"> Editar</button>-->
-
-            <!--</div>-->
-
-
-            <!--</md-list-item>-->
-            <!--</md-list>-->
-
-
-
-
-
-            <md-list>
-                <md-subheader class="md-no-sticky">3 line item</md-subheader>
-                <md-list-item class="md-3-line" ng-repeat="cliente in clientes">
-
-
-                    <div class="md-list-item-text" layout="column">
-                        <h3>{{"Nome: "+cliente.nome }}</h3>
-                        <h4>{{"Data Pedido: "+pedido.datapedido }}</h4>
-                        <md-button class="md-raised md-primary" ng-click="Detalhes(pedido)"> Detalhes</md-button>
-                    </div>
-                </md-list-item>
-            </md-list>
-        </md-content>
-
-    </div>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Data Evento</th>
+                    <th width="20%"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="pedido in pedidos">
+                    <td><span ng-bind="pedido.id"></span></td>
+                    <td><span ng-bind="pedido.cliente.nome"></span></td>
+                    <td><span ng-bind="pedido.dataEvento"></span></td>
+                    <td>
+                        <button type="button" ng-click="/DetalhePedidoView/pedido" class="btn btn-success custom-width">Detalhes</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
 
 
 </div>
-
 
 <script src="../../bower_components/angular/angular.min.js"></script>
 <script src="../../bower_components/angular-aria/angular-aria.min.js"></script>
