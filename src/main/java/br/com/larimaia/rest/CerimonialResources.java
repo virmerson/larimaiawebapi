@@ -5,14 +5,15 @@ import br.com.larimaia.entity.Cerimonial;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 /**
- * Created by Usuario on 02/12/2015.
+ * Created by Kennedy on 02/12/2015.
  */
-
 @Path("/cerimonial")
-public class CerimonialResource {
+public class CerimonialResources {
+
     @Inject
     CerimonialBO cerimonialBO;
 
@@ -20,9 +21,10 @@ public class CerimonialResource {
     @Path("/salvar")
     @Consumes("application/json")
     @Produces("application/json")
-    public Response salvar(Cerimonial cerimonial){
-        cerimonialBO.salvar(cerimonial);
-        return Response.status(200).entity(cerimonial).build();
+    public Response salvar(Cerimonial c){
+        cerimonialBO.salvar(c);
+        return Response.status(200).entity(c).build();
+
     }
 
     @GET
@@ -35,10 +37,8 @@ public class CerimonialResource {
 
     @GET
     @Path("/listar")
-    @Produces("application/json")
+    @Produces(MediaType.APPLICATION_JSON)
     public Response listar(){
-
         return Response.status(200).entity(cerimonialBO.listar()).build();
     }
-
 }

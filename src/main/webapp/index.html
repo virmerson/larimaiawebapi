@@ -1,10 +1,75 @@
-<!DOCTYPE html>
-<html lang="en" ng-app="appCrudAngular">
+<html ng-app="app">
 <head>
-    <meta charset="UTF-8">
-    <title>Index</title>
-</head>
-<body>
+    <link rel="stylesheet" href="./bower_components/angular/angular-csp.css">
+    <link rel="stylesheet" href="./bower_components/angular-material/angular-material.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.5/material.indigo-pink.min.css">
+    <link rel="stylesheet" href="./bower_components/material-design-lite/material.css">
 
+    <style>
+        .demo-layout-transparent {
+            background-color: #804021;
+        }
+        .demo-layout-transparent .mdl-layout__header,
+        .demo-layout-transparent .mdl-layout__drawer-button {
+            color: white;
+        }
+
+        #conteudo{
+            padding-top: 50px;
+            padding-left: 100px;
+            padding-right: 100px;
+            background-color: #ffffff;
+        }
+
+    </style>
+</head>
+<body  ng-controller="AppController">
+
+<div id="barra" class="demo-layout-transparent mdl-layout mdl-js-layout">
+    <header class="mdl-layout__header mdl-layout__header--transparent">
+        <div class="mdl-layout__header-row">
+            <!-- Title -->
+            <span class="mdl-layout-title">Larimaia - Bem Casado </span>
+            <!-- Add spacer, to align navigation to the right -->
+            <div class="mdl-layout-spacer"></div>
+            <!-- Navigation -->
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="/">Home</a>
+                <a class="mdl-navigation__link" href="/">Sobre</a>
+                <a class="mdl-navigation__link" href="/">Contato</a>
+                <a class="mdl-navigation__link" href="/">Link</a>
+            </nav>
+        </div>
+    </header>
+    <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Larimaia</span>
+        <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href="componentes/cliente/cliente.html">Clientes</a>
+            <a class="mdl-navigation__link" href="componentes/produto/Produto.html">Produtos</a>
+            <a class="mdl-navigation__link" href="componentes/pedido/Pedido.html">Pedidos</a>
+            <a class="mdl-navigation__link" href="componentes/usuario/usuario.html">Usuario</a>
+            <a class="mdl-navigation__link" href="componentes/consulta/consulta.html">Consultas</a>
+        </nav>
+    </div>
+    <main id="conteudo" class="mdl-layout__content">
+        <div  ng-viewport></div>
+    </main>
+</div>
+
+
+<script src="./bower_components/angular/angular.js"></script>
+<script src="./bower_components/angular-animate/angular-animate.min.js "></script>
+<script src="./bower_components/angular-aria/angular-aria.js"></script>
+<script src="./bower_components/angular-material/angular-material.js"></script>
+<script src="./bower_components/angular-new-router/dist/router.es5.js"></script>
+<script src="./bower_components/material-design-lite/material.min.js"></script>
+<script src="./bower_components/material-design-lite/material.js"></script>
+<script src="./controller/app.js"></script>
+<script src="./components/home/home.js"></script>
+<script src="./components/pedido/pedido.js"></script>
+<script src="./components/cliente/cliente.js"></script>
+<script src="./components/produto/produto.js"></script>
+<script src="./components/tipoevento/tipoevento.js"></script>
 </body>
 </html>

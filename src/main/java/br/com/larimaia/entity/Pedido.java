@@ -1,5 +1,7 @@
 package br.com.larimaia.entity;
 
+import org.codehaus.jackson.annotate.JsonBackReference;
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonManagedReference;
 
 import javax.persistence.*;
@@ -20,11 +22,9 @@ import java.util.Collection;
         @NamedQuery(name = "Pedido.findByIndicacao", query = "SELECT p FROM Pedido p WHERE p.indicacao = :indicacao"),
         @NamedQuery(name = "Pedido.findByEndereco", query = "SELECT p FROM Pedido p WHERE p.endereco = :endereco"),
         @NamedQuery(name = "Pedido.findByObservacao", query = "SELECT p FROM Pedido p WHERE p.observacao = :observacao"),
-        @NamedQuery(name = "Pedido.findByDataPedido", query = "SELECT p FROM Pedido p WHERE p.dataPedido BETWEEN :dataInicio AND :dataFinal"),
-        @NamedQuery(name = "Pedido.findByDataEvento", query = "SELECT p FROM Pedido p WHERE p.dataEvento  BETWEEN :dataInicio AND :dataFinal"),
+        @NamedQuery(name = "Pedido.findByDataPedido", query = "SELECT p FROM Pedido p WHERE p.dataPedido = :dataPedido"),
+        @NamedQuery(name = "Pedido.findByDataEvento", query = "SELECT p FROM Pedido p WHERE p.dataEvento = :dataEvento"),
         @NamedQuery(name = "Pedido.findByHoraEvento", query = "SELECT p FROM Pedido p WHERE p.horaEvento = :horaEvento")})
-        @NamedQuery(name = "Pedido.findByCliente", query = "SELECT p FROM Pedido p WHERE p.idCliente = :idCliente")
-
 public class Pedido implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -53,9 +53,7 @@ public class Pedido implements Serializable {
     private String dataEvento;
     @Column(name = "hora_evento")
     private String horaEvento;
-
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "id")
-
     @JsonManagedReference
     private Collection<ItemPedido> itemPedidoCollection;
     @JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")

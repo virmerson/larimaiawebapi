@@ -21,7 +21,8 @@ public class larimaiaApplication extends Application {
         classes.add(ProdutoResources.class);
         classes.add(TipoEventoResources.class);
         classes.add(PedidoResources.class);
-        classes.add(CerimonialResource.class);
+        classes.add(ItemPedidoResource.class);
+        classes.add(CerimonialResources.class);
         return classes;
     }
 }

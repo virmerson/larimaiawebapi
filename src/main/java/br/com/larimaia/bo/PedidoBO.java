@@ -1,14 +1,15 @@
 package br.com.larimaia.bo;
 
+import br.com.larimaia.dao.ItemPedidoDAO;
 import br.com.larimaia.dao.PedidoDAO;
 import br.com.larimaia.entity.ItemPedido;
 import br.com.larimaia.entity.Pedido;
 import br.com.larimaia.entity.TipoEvento;
 
 import javax.enterprise.context.Dependent;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import java.util.AbstractCollection;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -23,16 +24,26 @@ public class PedidoBO {
     public PedidoBO(){
     }
 
-    public void salvar(Pedido pedido){
+    public Pedido salvar(Pedido pedido){
         try {
+            Collection<ItemPedido> itensAux = pedido.getItemPedidoCollection();
+            Collection<ItemPedido> itens = new ArrayList<ItemPedido>();
+            pedido.setItemPedidoCollection(null);
+            pedido = pedidoDAO.salvar(pedido);
+            ItemPedidoDAO itemDAO = new ItemPedidoDAO();
 
-            for(ItemPedido ip:pedido.getItemPedidoCollection())
-                ip.setId(pedido);
+            for (ItemPedido ip : itensAux){
+              ip.setId(pedido.getId());
+                itens.add(ip);
+            }
 
-            pedidoDAO.salvar(pedido);
+            pedido.setItemPedidoCollection(itens);
+            pedido = pedidoDAO.salvar(pedido);
+            return pedido;
         }catch (Exception e){
-            System.out.println(e);
+            e.printStackTrace();
         }
+        return null;
     }
 
     public List<Pedido> listar(){
@@ -44,17 +55,6 @@ public class PedidoBO {
     }
     public Pedido editar(int id){
         return pedidoDAO.buscarPorId(id);
-    }
-
-    public List<Pedido> porDataPedido(String dataInicio, String dataFim){return pedidoDAO.findByDataPedido(dataInicio, dataFim);}
-
-    public List<Pedido> porCliente(Integer id){
-        return pedidoDAO.findByCliente(id);
-    }
-
-    public List<Pedido> porDataEvento(String dataInicio, String dataFim){
-
-        return pedidoDAO.findByDataEvento(dataInicio, dataFim);
     }
 }
 

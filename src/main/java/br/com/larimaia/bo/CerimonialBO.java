@@ -7,32 +7,30 @@ import javax.enterprise.context.Dependent;
 import java.util.List;
 
 /**
- * Created by Usuario on 02/12/2015.
+ * Created by Kennedy on 02/12/2015.
  */
 @Dependent
 public class CerimonialBO {
-    private CerimonialDAO cerimonialDAO = new CerimonialDAO();
 
-    public CerimonialBO(){}
+    CerimonialDAO dao = new CerimonialDAO();
 
-    public void salvar(Cerimonial cerimonial){
-        try {
-            cerimonialDAO.salvar(cerimonial);
-        }catch (Exception e){
-            System.out.println(e);
-        }
-
+    public CerimonialBO() {
     }
+
+    public void salvar(Cerimonial c){
+        dao.salvar(c);
+    }
+    
 
     public List<Cerimonial> listar(){
-        return cerimonialDAO.buscarTodos();
+        return dao.listar();
     }
 
-    public void remover(int  id){
-        cerimonialDAO.excluir(cerimonialDAO.buscarPorId(id));
-    }
-    public Cerimonial editar(int id){
-        return cerimonialDAO.buscarPorId(id);
+    public void excluir (int c){
+        dao.excluir(c);
     }
 
+    public Cerimonial editar(int id) {
+        return dao.editar(id);
+    }
 }

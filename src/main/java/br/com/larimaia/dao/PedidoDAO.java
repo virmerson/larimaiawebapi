@@ -1,6 +1,5 @@
 package br.com.larimaia.dao;
 
-import br.com.larimaia.entity.Cliente;
 import br.com.larimaia.entity.Pedido;
 
 import javax.persistence.*;
@@ -17,14 +16,14 @@ public class PedidoDAO {
         em = JPAUtil.abreConexao();
     }
 
-    public void salvar(Pedido pedido) {
+    public Pedido salvar(Pedido pedido) {
         EntityTransaction tx = em.getTransaction();
 
         tx.begin();
-        em.merge(pedido);
+        Pedido p =  em.merge(pedido);
         em.flush();
         tx.commit();
-
+        return p;
     }
 
     public Pedido buscarPorId(Integer id) {
@@ -39,7 +38,7 @@ public class PedidoDAO {
     }
 
     public void excluir(Pedido pedido) {
-
+        //
 
         EntityTransaction tx = em.getTransaction();
         try {
@@ -52,23 +51,4 @@ public class PedidoDAO {
             e.printStackTrace();
         }
     }
-
-    public List<Pedido> findByDataPedido(String dataInicio, String dataFinal){
-        List<Pedido> resultList = em.createNamedQuery("Pedido.findByDataPedido")
-                .setParameter("dataInicio", dataInicio).setParameter("dataFinal", dataFinal).getResultList();
-        return resultList;
-    }
-
-    public List<Pedido> findByDataEvento(String dataInicio, String dataFinal){
-        List<Pedido> resultList = em.createNamedQuery("Pedido.findByDataEvento")
-                .setParameter("dataInicio", dataInicio).setParameter("dataFinal", dataFinal).getResultList();
-        return resultList;
-    }
-
-    public List<Pedido> findByCliente(Integer id){
-        List<Pedido> resultList = em.createNamedQuery("Pedido.findByCliente")
-                .setParameter("idCliente", id).getResultList();
-        return resultList;
-    }
-
 }

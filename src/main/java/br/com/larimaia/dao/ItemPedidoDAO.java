@@ -24,6 +24,7 @@ public class ItemPedidoDAO {
             tx.commit();
         } catch(Exception e){
             tx.rollback();
+
         }
         return itemPedido;
     }

@@ -1,10 +1,9 @@
 /**
  * Created by Junio e Marcelo on 09/11/2015.
  */
-
-var appProdutoController = angular.module('appControllers', ['ngMaterial']);
-
-appProdutoController.controller('ProdutoCtrl', function ($scope, $http) {
+'use strict';
+angular.module('app.produto', ['ngMaterial'])
+      .controller('ProdutoController', function ($scope, $http) {
 
     $scope.produtos = {}; //Lista de produtos vinculadas a tela
     $scope.produto = {}; // Objeto Produto Vinculado a tela (Form)

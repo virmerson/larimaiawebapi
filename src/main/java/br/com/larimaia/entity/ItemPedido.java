@@ -1,6 +1,8 @@
 package br.com.larimaia.entity;
 
 import org.codehaus.jackson.annotate.JsonBackReference;
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonManagedReference;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -29,11 +31,11 @@ public class ItemPedido implements Serializable {
     @Basic(optional = false)
     @Column(name = "valor_item")
     private double valorItem;
-    @JoinColumn(name = "id", referencedColumnName = "id")
-    @ManyToOne(optional = false)
-    @JsonBackReference
-    private Pedido id;
-
+    //@JoinColumn(name = "id", referencedColumnName = "id")
+    //@ManyToOne(optional = false)
+   // @JsonBackReference
+    @Column
+    private Integer id;
     @JoinColumn(name = "id_produto", referencedColumnName = "id_produto")
     @ManyToOne(optional = false)
     private Produto idProduto;
@@ -75,12 +77,12 @@ public class ItemPedido implements Serializable {
         this.valorItem = valorItem;
     }
 
-    public Pedido getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Pedido id) {
-        this.id = id;
+    public void setId(Integer idPedido) {
+        this.id = idPedido;
     }
 
     public Produto getIdProduto() {

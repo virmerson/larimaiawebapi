@@ -5,6 +5,7 @@ import br.com.larimaia.entity.Produto;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 /**
@@ -18,9 +19,15 @@ public class ProdutoResources {
 
     @POST
     @Path("/salvar")
-    @Consumes("application/json")
-    public void salvar(Produto produto){
-      produtoBO.salvar(produto);
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response salvar(Produto produto){
+
+        produtoBO.salvar(produto);
+        System.out.println("Salvar produto --> " + produto.getDescricao());
+        System.out.println("Salvar produto --> "+produto.getValor());
+
+        return Response.status(200).entity(produto).build();
     }
 
     @GET
@@ -38,7 +45,7 @@ public class ProdutoResources {
 
     @GET
     @Path("/listar")
-    @Produces("application/json")
+    @Produces(MediaType.APPLICATION_JSON)
     public Response listar(){
         return Response.status(200).entity(produtoBO.listar()).build();
     }

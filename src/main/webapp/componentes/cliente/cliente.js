@@ -1,8 +1,8 @@
 /**
  * Created by Lucas, William e Diosefer on 05/10/2015.
  */
-
-appCrudAngular.controller('ClienteCtrl', function($scope, $http){
+angular.module('app.cliente',['ngNewRouter'])
+    .controller('ClienteController', function($scope, $http){
 
     $scope.clientes = {};//Lista de clientes que estão vinculados a tela
     $scope.cliente = {};//Objeto de cliente vinculado a tela

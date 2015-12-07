@@ -5,8 +5,8 @@
 
 
 
-//Um controller dela
-appCrudAngular.controller('TipoEventoCtrl', function ($scope, $http) {
+angular.module('app.tipoevento',['ngMaterial'])
+    .controller('TipoEventoController', function ($scope, $http) {
 
     $scope.tiposEvento = {}; //Lista de Tipo Evento vinculadas a tela
     $scope.tipoEvento = {}; // Objeto Tipo Evento Vinculado a tela (Form)

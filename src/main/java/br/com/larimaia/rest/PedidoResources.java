@@ -5,6 +5,7 @@ import br.com.larimaia.entity.Pedido;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 /**
@@ -18,12 +19,12 @@ public class PedidoResources {
 
     @POST
     @Path("/salvar")
+    @Produces("application/json")
     @Consumes("application/json")
-    public void salvar(Pedido pedido){pedidoBO.salvar(pedido);}
+    public Pedido salvar(Pedido pedido){ return pedidoBO.salvar(pedido);}
 
     @GET
     @Path("/editar/{id}")
-    @Produces("application/json")
     public Response editar(@PathParam("id") int id){return Response.status(200).entity(pedidoBO.editar(id)).build();}
 
     @DELETE
@@ -31,30 +32,10 @@ public class PedidoResources {
     public void excluir(@PathParam("id") int id){pedidoBO.remover(id); }
 
     @GET
-    @Path("/buscarporid/{id}")
+    @Path("/lista")
     @Produces("application/json")
-    public Response buscarPorId(@PathParam("id") int id){return Response.status(200).entity(pedidoBO.editar(id)).build(); }
+    public Response lista(){
 
-    @GET
-    @Path("/pordatapedido/{dataInicio}/{dataFim}")
-    @Produces("application/json")
-    public Response porDataPedido(@PathParam("dataInicio") String dataInicio,@PathParam("dataFim") String dataFim){
-        return Response.status(200).entity(pedidoBO.porDataPedido(dataInicio, dataFim)).build();
+        return Response.status(200).entity(pedidoBO.listar()).build();
     }
-
-    @GET
-    @Path("/porcliente/{id}")
-    @Produces("application/json")
-    public Response porCliente(@PathParam("id") Integer id){
-        return Response.status(200).entity(pedidoBO.porCliente(id)).build();
-    }
-
-
-    @GET
-    @Path("/pordataevento/{dataInicio}/{dataFim}")
-    @Produces("application/json")
-    public Response porDataEvento(@PathParam("dataInicio") String dataInicio,@PathParam("dataFim") String dataFim){
-        return Response.status(200).entity(pedidoBO.porDataPedido(dataInicio, dataFim)).build();
-    }
-    
 }

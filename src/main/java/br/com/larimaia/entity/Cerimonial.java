@@ -1,40 +1,41 @@
 package br.com.larimaia.entity;
 
+
 import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
- * Created by Usuario on 02/12/2015.
+ * Created by Kennedy on 02/12/2015.
  */
 
 @Entity
 @Table(name = "cerimonial")
 public class Cerimonial implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idCerimonial;
-    @Column(name = "nome")
-    private String nome;
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    public int id;
+    @Column
+    public String descricao;
 
-    public String getNome() {
-        return nome;
+    public int getId() {
+        return id;
     }
 
-    public void setNome(String descricao) {
-        this.nome = descricao;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public Integer getIdCerimonial() {
-        return idCerimonial;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setIdCerimonial(Integer idCerimonial) {
-        this.idCerimonial = idCerimonial;
-    }
-
-    @Override
-    public String toString() {
-        return nome;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 }

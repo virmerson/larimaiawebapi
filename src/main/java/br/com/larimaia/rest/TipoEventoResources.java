@@ -5,6 +5,7 @@ import br.com.larimaia.entity.TipoEvento;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 /**
@@ -19,9 +20,9 @@ public class TipoEventoResources {
     @Path("/salvar")
     @Consumes("application/json")
     @Produces("application/json")
-    public Response salvar(TipoEvento tipoEvento){
+    public void salvar(TipoEvento tipoEvento){
         tipoEventoBO.salvar(tipoEvento);
-        return Response.status(200).entity(tipoEvento).build();
+
     }
 
     @GET
@@ -34,9 +35,8 @@ public class TipoEventoResources {
 
     @GET
     @Path("/listar")
-    @Produces("application/json")
+    @Produces(MediaType.APPLICATION_JSON)
     public Response listar(){
-
         return Response.status(200).entity(tipoEventoBO.listar()).build();
     }
 

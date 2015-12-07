@@ -1,11 +1,6 @@
-<html ng-app="appCrudAngular" >
-<head>
-    <link rel="stylesheet" href="../../bower_components/angular/angular-csp.css">
-    <link rel="stylesheet" href="../../bower_components/angular-material/angular-material.css">
+<section  ng-controller="PedidoController">
+<form>
 
-</head>
-<body ng-controller="PedidoCtrl">
-<form >
 
     <h1 >Lari Maia - Pedido</h1>
 
@@ -86,36 +81,22 @@
         <br>
         <br>
 
-        <table id="tabela">
-            <thead>
-            <tr>
-
-                <th>Produto</th>
-                <th>Quantidade</th>
-                <th>Valor</th>
-            </tr>
-            </thead>
-            <tbody>
-
-
-            <div >
-            <tr ng-repeat="item in pedido.itemPedidoCollection">
-
-                <td>{{item.idProduto.descricao}}</td>
-                <td>{{item.quantidade}}</td>
-                <td>{{item.valorItem}}</td>
-
-                <td><a ng-click="excluir()">Excluir</a></td>
-            </tr>
-    </div>
-
-
-    </tbody>
-    </table>
+        <div ng-cloak>
+        <md-content>
+        <md-list>
+            <md-subheader class="md-no-sticky">Itens do Pedido</md-subheader>
+            <md-list-item ng-repeat="item in itens track by $index">
+                <div class="md-list-item-text">
+                {{item.idProduto.descricao+"  -  "+item.quantidade+"  -  "+item.valorItem}} <button ng-click="excluir(item)"> Excluir</button>
+                </div>
+            </md-list-item>
+        </md-list>
+        </md-content>
+        </div>
     <br>
     <br>
 
-    <label>Valor Total </label>
+    <label>Valor Total: </label>{{total}}
 
 
     <br>
@@ -133,14 +114,5 @@
     </div>
 
 </form>
+</section>
 
-    <script src="../../bower_components/angular/angular.min.js"></script>
-    <script src="../../bower_components/angular-aria/angular-aria.min.js"></script>
-
-    <script src="../../bower_components/angular-animate/angular-animate.min.js"></script>
-    <script src="../../bower_components/angular-material/angular-material.js"></script>
-    <script src="../../controller/app.js"></script>
-    <script src="PedidoCtrl.js"></script>
-
-</body>
-</html>

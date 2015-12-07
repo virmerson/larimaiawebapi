@@ -29,7 +29,8 @@ public class Produto implements Serializable {
     @Basic(optional = false)
     @Column(name = "valor")
     private double valor;
-
+   // @OneToMany(cascade = CascadeType.ALL, mappedBy = "idProduto")
+   // private Collection<ItemPedido> itemPedidoCollection;
 
     public Produto() {
     }
@@ -68,7 +69,13 @@ public class Produto implements Serializable {
         this.valor = valor;
     }
 
+   /* public Collection<ItemPedido> getItemPedidoCollection() {
+        return itemPedidoCollection;
+    }
 
+    public void setItemPedidoCollection(Collection<ItemPedido> itemPedidoCollection) {
+        this.itemPedidoCollection = itemPedidoCollection;
+    }*/
 
     @Override
     public int hashCode() {
