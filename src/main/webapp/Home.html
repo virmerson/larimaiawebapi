@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Larimaia </title>
+    <link rel="stylesheet" href="bower_components/angular/angular-csp.css">
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
+    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.5/material.indigo-pink.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="bower_components/material-design-lite/material.css">
+
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js "></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+
+    <script src="bower_components/material-design-lite/material.min.js"></script>
+    <script src="bower_components/material-design-lite/material.js"></script>
+
+    <!-- Uses a transparent header that draws on top of the layout's background -->
+    <style>
+        .demo-layout-transparent {
+            background-color: #804021;
+        }
+        .demo-layout-transparent .mdl-layout__header,
+        .demo-layout-transparent .mdl-layout__drawer-button {
+            /* This background is dark, so we set text to white. Use 87% black instead if
+               your background is light. */
+            color: white;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="demo-layout-transparent mdl-layout mdl-js-layout">
+    <header class="mdl-layout__header mdl-layout__header--transparent">
+        <div class="mdl-layout__header-row">
+            <!-- Title -->
+            <span class="mdl-layout-title">Larimaia Web 1.0 </span>
+            <!-- Add spacer, to align navigation to the right -->
+            <div class="mdl-layout-spacer"></div>
+            <!-- Navigation -->
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="">Home</a>
+                <a class="mdl-navigation__link" href="">Sobre</a>
+                <a class="mdl-navigation__link" href="">Contato</a>
+                <a class="mdl-navigation__link" href="">Link</a>
+            </nav>
+        </div>
+
+
+
+    </header>
+    <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Larimaia</span>
+        <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href="index.html">Clientes</a>
+            <a class="mdl-navigation__link" href="">Produtos</a>
+            <a class="mdl-navigation__link" href="">Pedidos</a>
+            <a class="mdl-navigation__link" href="">Consultas</a>
+        </nav>
+    </div>
+    <main class="mdl-layout__content">
+    </main>
+</div>
+
+</body>
+</html>

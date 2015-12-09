@@ -10,15 +10,10 @@ import java.util.List;
  */
 
 public class TipoEventoDAO {
-
-    EntityManagerFactory emf;
     EntityManager em;
 
     public TipoEventoDAO() {
-        //Ler o persistence.xml
-        emf = Persistence.createEntityManagerFactory("lm_bemcasadoPU");
-        //Criano EntityManager
-        em = emf.createEntityManager();
+        em = JPAUtil.abreConexao();
     }
 
     public void salvar(TipoEvento tp) {

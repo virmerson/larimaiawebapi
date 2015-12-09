@@ -1,0 +1,46 @@
+
+<section ng-controller="ProdutoController">
+<form >
+
+    <form>
+        <md-input-container>
+            <label>Descrição</label>
+            <input type="text" ng-model="produto.descricao"/>
+        </md-input-container>
+
+        <md-input-container>
+            <label>Valor</label>
+            <input ng-model="produto.valor" type="text">
+        </md-input-container>
+
+        <md-button class="md-raised md-primary" ng-disabled="!produto.descricao || !produto.valor" ng-click="salvar()">Salvar</md-button>
+    </form>
+
+
+
+            <div ng-cloak>
+                <md-content>
+                    <md-list>
+                        <md-list-item class="md-3-line md-long-text" ng-repeat="produto in produtos">
+
+                            <div class="md-list-item-text">
+                                {{produto.id + " "+ produto.descricao +" - " + produto.valor }}
+
+
+                                <button ng-click="excluir(produto.idProduto)"> Excluir</button>
+                                <button ng-click="editar(produto)"> Editar</button>
+                            </div>
+
+                        </md-list-item>
+
+                    </md-list>
+                </md-content>
+            </div>
+
+    </main>
+</div>
+
+
+</form>
+</section>
+

@@ -10,23 +10,20 @@ import java.util.List;
  */
 
 public class PedidoDAO {
-
-    EntityManagerFactory emf;
     EntityManager em;
 
     public PedidoDAO() {
-        emf = Persistence.createEntityManagerFactory("lm_bemcasadoPU");
-        em = emf.createEntityManager();
+        em = JPAUtil.abreConexao();
     }
 
-    public void salvar(Pedido pedido) {
+    public Pedido salvar(Pedido pedido) {
         EntityTransaction tx = em.getTransaction();
 
         tx.begin();
-        em.merge(pedido);
+        Pedido p =  em.merge(pedido);
         em.flush();
         tx.commit();
-
+        return p;
     }
 
     public Pedido buscarPorId(Integer id) {

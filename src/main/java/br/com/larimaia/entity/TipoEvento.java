@@ -25,8 +25,8 @@ public class TipoEvento implements Serializable {
     @Basic(optional = false)
     @Column(name = "descricao")
     private String descricao;
-    @OneToMany(mappedBy = "idTipoEvento")
-    private Collection<Pedido> pedidoCollection;
+    //@OneToMany(mappedBy = "idTipoEvento")
+    //private Collection<Pedido> pedidoCollection;
 
     public TipoEvento() {
     }
@@ -56,7 +56,7 @@ public class TipoEvento implements Serializable {
         this.descricao = descricao;
     }
 
-    public Collection<Pedido> getPedidoCollection() {
+    /*public Collection<Pedido> getPedidoCollection() {
         return pedidoCollection;
     }
 
@@ -69,7 +69,7 @@ public class TipoEvento implements Serializable {
         int hash = 0;
         hash += (idTipoEvento != null ? idTipoEvento.hashCode() : 0);
         return hash;
-    }
+    }*/
 
     @Override
     public boolean equals(Object object) {

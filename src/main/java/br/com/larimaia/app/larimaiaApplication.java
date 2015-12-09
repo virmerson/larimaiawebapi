@@ -1,13 +1,9 @@
 package br.com.larimaia.app;
 
 
-import br.com.larimaia.rest.ClienteResource;
-import br.com.larimaia.rest.PedidoResources;
-import br.com.larimaia.rest.ProdutoResources;
-import br.com.larimaia.rest.TipoEventoResources;
+import br.com.larimaia.rest.*;
 
 import javax.ws.rs.ApplicationPath;
-import javax.ws.rs.Path;
 import javax.ws.rs.core.Application;
 import java.util.HashSet;
 import java.util.Set;
@@ -23,6 +19,8 @@ public class larimaiaApplication extends Application {
         classes.add(ProdutoResources.class);
         classes.add(TipoEventoResources.class);
         classes.add(PedidoResources.class);
+        classes.add(ItemPedidoResource.class);
+        classes.add(EstadoResources.class);
         return classes;
     }
 }
